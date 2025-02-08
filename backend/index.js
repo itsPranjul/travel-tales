@@ -12,7 +12,7 @@ const { authenticationToken } = require("./utilities");
 const upload = require("./multer");
 const fs = require("fs");
 const path = require("path");
-
+const PORT=process.env.PORT || 4000;
 mongoose.connect(config.connectionString);
 
 const app = express();
@@ -370,5 +370,8 @@ app.get("/travel-stories/filter", authenticationToken, async (req, res) => {
   }
 });
 
-app.listen(8000);
+app.listen(PORT,() => {
+  console.log(`App is listening in ${PORT}`);
+  
+});
 module.exports = app;
