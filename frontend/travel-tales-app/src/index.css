@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rdp-root {
+  --rdp-accent-color: #01b0cb; /* Change the accent color to indigo. */
+  --rdp-accent-background-color: #dffbff; /* Change the accent background color. */
+  --rdp-day_button-border-radius: 8px;
+  --rdp-selected-font: bold medium var(--rdp-font-family);
+}
+
+@layer base {
+
+  html {
+    font-family: 'Poppins', 'sans-serif';
+  }
+
+  body {
+    background-color: #fdfeff;
+    overflow: auto;
+  }
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #057c8e;
+  border-radius: 3px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: rgb(172,201,229);
+}
+
+@layer components {
+  .input-box {
+
+    @apply w-full text-sm bg-cyan-600/5 rounded px-3 py-3 mb-4 outline-none;
+  }
+
+  .btn-primary {
+    @apply w-full text-sm font-medium bg-cyan-500 shadow-lg shadow-cyan-200/50 p-[10px] rounded-full my-1 hover:bg-cyan-100 hover:text-primary;
+  }
+
+  .btn-light {
+    @apply bg-cyan-50 text-primary shadow-cyan-100/0 border border-cyan-100 hover:bg-primary hover:text-white
+  }
+
+  .login-ui-box {
+    @apply w-80 h-[450px] rounded-full bg-cyan-300 absolute rotate-45
+  }
+
+  .modal-box {
+    @apply w-[80vw] md:w-[40%] h-[80vh] bg-white rounded-lg mx-auto mt-14 p-5 overflow-y-scroll scrollbar z-50;
+  }
+
+  .icon-btn {
+    @apply text-[22px] text-slate-300 cursor-pointer hover:text-red-500;
+  }
+
+  .input-label {
+    @apply text-xs text-slate-400;
+  }
+
+  .btn-small {
+    @apply flex items-center gap-1 font-medium bg-cyan-50 text-primary shadow-cyan-100/0 border border-cyan-100 hover:bg-primary hover:text-white rounded px-3 py-[3px]
+  }
+
+  .btn-delete {
+    @apply bg-rose-50 text-rose-500 shadow-rose-100/0 border border-rose-100 hover:bg-rose-500 hover:text-white
+  }
+  
+}
