@@ -1,7 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const config = require("./config.json");
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs')
 const express = require("express");
 const cors = require("cors");
 const User = require("./models/user_model");
@@ -13,7 +12,14 @@ const upload = require("./multer");
 const fs = require("fs");
 const path = require("path");
 const PORT=process.env.PORT || 4000;
-mongoose.connect(config.connectionString);
+
+const mongoURI = process.env.MONGO_URI;
+
+mongoose
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
+//mongoose.connect(config.connectionString);
 
 const app = express();
 app.use(express.json());
